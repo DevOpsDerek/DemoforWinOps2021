@@ -10,3 +10,20 @@ step "Approval step" {
         worker_pool_variable = ""
     }
 }
+
+step "Hello world" {
+    properties = {
+        Octopus.Action.TargetRoles = "Bastion"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "Write-Host \"Hello World\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool_variable = ""
+    }
+}
